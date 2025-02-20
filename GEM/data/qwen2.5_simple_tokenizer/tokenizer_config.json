@@ -1,0 +1,207 @@
+{
+  "add_bos_token": false,
+  "add_prefix_space": false,
+  "added_tokens_decoder": {
+    "151643": {
+      "content": "<|endoftext|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151644": {
+      "content": "<|im_start|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151645": {
+      "content": "<|im_end|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151646": {
+      "content": "<|object_ref_start|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151647": {
+      "content": "<|object_ref_end|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151648": {
+      "content": "<|box_start|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151649": {
+      "content": "<|box_end|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151650": {
+      "content": "<|quad_start|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151651": {
+      "content": "<|quad_end|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151652": {
+      "content": "<|vision_start|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151653": {
+      "content": "<|vision_end|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151654": {
+      "content": "<|vision_pad|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151655": {
+      "content": "<|image_pad|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151656": {
+      "content": "<|video_pad|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "151657": {
+      "content": "<tool_call>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151658": {
+      "content": "</tool_call>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151659": {
+      "content": "<|fim_prefix|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151660": {
+      "content": "<|fim_middle|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151661": {
+      "content": "<|fim_suffix|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151662": {
+      "content": "<|fim_pad|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151663": {
+      "content": "<|repo_name|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    },
+    "151664": {
+      "content": "<|file_sep|>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": false
+    }
+  },
+  "additional_special_tokens": [
+    "<|im_start|>",
+    "<|im_end|>",
+    "<|object_ref_start|>",
+    "<|object_ref_end|>",
+    "<|box_start|>",
+    "<|box_end|>",
+    "<|quad_start|>",
+    "<|quad_end|>",
+    "<|vision_start|>",
+    "<|vision_end|>",
+    "<|vision_pad|>",
+    "<|image_pad|>",
+    "<|video_pad|>"
+  ],
+  "bos_token": null,
+  "chat_template": "{%-  if tools  %}{{-  '<|im_start|>system' }}{%-  if messages[0]['role'] == 'system'  %}{{-  messages[0]['content'] }}{%-  else  %}{{-  'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.' }}{%-  endif  %}{{-  \"# ToolsYou may call one or more functions to assist with the user query.You are provided with function signatures within <tools></tools> XML tags:<tools>\" }}{%-  for tool in tools  %}{{-  \"\" }}{{-  tool | tojson }}{%-  endfor  %}{{-  \"</tools>For each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:<tool_call>{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}</tool_call><|endoftext|>\" }}{%-  else  %}{%-  if messages[0]['role'] == 'system'  %}{{-  '<|im_start|>system' + messages[0]['content'] + '<|endoftext|>' }}{%-  else  %}{{-  '<|im_start|>systemYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|endoftext|>' }}{%-  endif  %}{%-  endif  %}{%-  for message in messages  %}{%-  if (message.role == \"user\") or (message.role == \"system\" and not loop.first) or (message.role == \"assistant\" and not message.tool_calls)  %}{{-  '<|im_start|>' + message.role + '' + message.content + '<|endoftext|>' + '' }}{%-  elif message.role == \"assistant\"  %}{{-  '<|im_start|>' + message.role }}{%-  if message.content  %}{{-  '' + message.content }}{%-  endif  %}{%-  for tool_call in message.tool_calls  %}{%-  if tool_call.function is defined  %}{%-  set tool_call = tool_call.function  %}{%-  endif  %}{{-  '<tool_call>{\"name\": \"' }}{{-  tool_call.name }}{{-  '\", \"arguments\": ' }}{{-  tool_call.arguments | tojson }}{{-  '}</tool_call>' }}{%-  endfor  %}{{-  '<|endoftext|>' }}{%-  elif message.role == \"tool\"  %}{%-  if (loop.index0 == 0) or (messages[loop.index0 - 1].role != \"tool\")  %}{{-  '<|im_start|>user' }}{%-  endif  %}{{-  '<tool_response>' }}{{-  message.content }}{{-  '</tool_response>' }}{%-  if loop.last or (messages[loop.index0 + 1].role != \"tool\")  %}{{-  '<|endoftext|>' }}{%-  endif  %}{%-  endif  %}{%-  endfor  %}{%-  if add_generation_prompt  %}{{-  '<|im_start|>assistant' }}{%-  endif  %}",
+  "clean_up_tokenization_spaces": false,
+  "eos_token": "<|endoftext|>",
+  "errors": "replace",
+  "model_max_length": 131072,
+  "pad_token": "<|endoftext|>",
+  "split_special_tokens": false,
+  "tokenizer_class": "Qwen2Tokenizer",
+  "unk_token": null
+}
