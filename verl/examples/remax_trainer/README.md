@@ -1,8 +1,9 @@
 
 # ReMax Training 
 
-
 This repo contains the code for training through ReMax.
+
+Please use the `run_qwen2.5-3b_gsm8k.sh` and `run_llama3.1-8b_gsm8k.sh` to reproduce the results in the blog post.
 
 We make the following changes to the original ReMax code in the Verl repo:
 
