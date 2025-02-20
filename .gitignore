@@ -45,5 +45,3 @@ wandb/
 runs/
 events.out.tfevents.*
 
-# DeepSpeed
-zero_to_fp32.py
