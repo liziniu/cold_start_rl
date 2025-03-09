@@ -1,0 +1,3 @@
+# Training Code for GEM
+
+This repository contains the training code for [GEM](https://github.com/liziniu/GEM). Unlike the cross-entropy method commonly used in SFT, which often results in overfitting and reduced generation diversity, GEM is a training approach for SFT that preserves output diversity while learning from supervised data. For more information, please refer to the paper "Preserving Diversity in Supervised Fine-Tuning of Large Language Models" available at https://openreview.net/forum?id=NQEe7B7bSw.
